@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #password-box, #video-box {
+            background: #222;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 10px #000;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #00bfff;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #008ecc;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Password Box -->
+<div id="password-box">
+    <h2>Masukkan Password</h2>
+    <input type="password" id="passInput" placeholder="Password..."><br>
+    <button onclick="checkPass()">Masuk</button>
+    <p id="error" style="color:red; display:none;">Password salah!</p>
+</div>
+
+<!-- Video Box -->
+<div id="video-box" style="display:none;">
+    <h2>Video Private</h2>
+
+    <!-- Video dari Google Drive -->
+    <iframe src="https://drive.google.com/file/d/16RHKqZ-Qo-L0xWiVSIvaqY09ZLIXycO4/preview" 
+            allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+</div>
+
+<script>
+    // GANTI PASSWORD DI SINI
+    const correctPassword = "12345";
+
+    function checkPass() {
+        let input = document.getElementById("passInput").value;
+        if (input === correctPassword) {
+            document.getElementById("password-box").style.display = "none";
+            document.getElementById("video-box").style.display = "block";
+        } else {
+            document.getElementById("error").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
